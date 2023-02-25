@@ -1,42 +1,107 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
              x:Class="MedicalService.MainPage">
-
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            Spacing="0"
+            Padding="24,0"
+            VerticalOptions="Fill">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <!--Header Section-->
+            <Grid ColumnDefinitions="auto,*,auto">
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                <Image Source="profile_image.png"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       Aspect="AspectFill">
+                    <Image.Clip>
+                        <EllipseGeometry Center="30,30" RadiusX="30" RadiusY="30"/>
+                    </Image.Clip>
+                </Image>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                  <Label Text="Welcome back!"
+                         Grid.Column="1"
+                         TextColor="#4A4A4A"
+                         FontFamily="OpenSansSemibold"
+                         FontSize="Header"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"/> 
+                    <Grid Grid.Column="2">
+                        <Image Source="bell.png"
+                               HeightRequest="30"
+                               WidthRequest="30"/>
+                        <Ellipse HorizontalOptions="End"
+                                 VerticalOptions="Start"
+                                 Margin="0,15,2,0"
+                                 Fill="#3E0789"
+                                 HeightRequest="12"
+                                 WidthRequest="12"
+                                 />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                </Grid>
+
+            </Grid>
+
+            <Label FontSize="Title"
+                   Margin="0,32"
+                         FontFamily="OpenSansSemibold"
+                   Text="Medical service"
+                   TextColor="#646464"/>
+
+            <!--Medical Service Primary buttons-->
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="8">
+
+                    <Grid ColumnDefinitions="*, 4*"
+                          Padding="24,16"
+                          ColumnSpacing="8">
+                <Frame CornerRadius="10"
+                       Grid.ColumnSpan="2"
+                       Margin="-24,-16"
+                       HasShadow="False"
+                       BackgroundColor="#6073E7"/>
+                    <Image Source="contract.png"
+                               HeightRequest="24"
+                               HorizontalOptions="End"
+                               WidthRequest="24"/>
+                    <Label Grid.Column="1"
+                               Text="Appointment"
+                           FontSize="Default"
+                           FontFamily="OpenSansRegular"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               TextColor="#DFE6FD"/>
+                </Grid>
+
+                  <Grid ColumnDefinitions="*, 4*"
+                          Padding="24,16"
+                        Grid.Column="1"
+                          ColumnSpacing="8">
+                <Frame CornerRadius="10"
+                       Grid.ColumnSpan="2"
+                       Margin="-24,-16"
+                       HasShadow="False"
+                       BackgroundColor="#303A74"/>
+                    <Image Source="ambulance.png"
+                               HeightRequest="24"
+                               HorizontalOptions="End"
+                               WidthRequest="24"/>
+                    <Label Grid.Column="1"
+                               Text="Emergency"
+                           FontSize="Default"
+                           FontFamily="OpenSansRegular"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               TextColor="#DFE6FD"/>
+                </Grid>
+
+
+            </Grid>
+
 
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
 
