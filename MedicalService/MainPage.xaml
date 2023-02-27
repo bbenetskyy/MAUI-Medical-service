@@ -169,6 +169,62 @@
 
             </ScrollView>
 
+            
+              <Label FontSize="Subtitle"
+                     Margin="0,12,0,0"
+                         FontFamily="OpenSansSemibold"
+                   Text="Ongoing diseases"
+                   TextColor="#626262"/>
+
+            <!--List of diseases-->
+            <ScrollView Orientation="Horizontal"
+                        Margin="0,18"
+                        HorizontalScrollBarVisibility="Never">
+                <StackLayout Orientation="Horizontal"
+                             Spacing="8">
+                    <BindableLayout.ItemsSource>
+                     <x:Array Type="{x:Type xs:SelectableModel}">
+                         <xs:SelectableModel Description="None"/> 
+                         <xs:SelectableModel Description="Astma"/> 
+                         <xs:SelectableModel Description="Diabets"/> 
+                         <xs:SelectableModel Description="Hydatidosis"/> 
+                         <xs:SelectableModel Description="Plague"/> 
+                         <xs:SelectableModel Description="Varicella"/> 
+                     </x:Array>
+                    </BindableLayout.ItemsSource>
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
+                        <Frame BorderColor="#6073E7"
+                               Padding="18,10"
+                               HasShadow="False"
+                               HorizontalOptions="Start"
+                               BackgroundColor="{Binding IsSelected,
+                                        Converter={StaticResource SelectedToBackgroundColor}}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                      CommandParameter="{Binding .}"
+                                                      />
+                            </Frame.GestureRecognizers>
+                            <Label Text="{Binding Description}"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill"
+                           FontSize="Default"
+                           FontFamily="OpenSansRegular"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   TextColor="{Binding IsSelected,
+                                        Converter={StaticResource SelectedToTextColor}}"/>
+                        </Frame>
+
+                    </DataTemplate>
+
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+
+            </ScrollView>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
