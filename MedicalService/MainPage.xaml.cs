@@ -11,9 +11,17 @@ public partial class MainPage : ContentPage
 
     void TapGestureRecognizer_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
     {
-		if(e.Parameter is SelectableModel model)
+		if (e.Parameter is SelectableModel selectable)
 		{
-			model.IsSelected = !model.IsSelected;
+			selectable.IsSelected = !selectable.IsSelected;
+		}
+		else if (e.Parameter is QuestionableModel questionable)
+		{
+			var frame = sender as Frame;
+			var label = frame.Children.First() as Label;
+			questionable.Answer = label.Text.Equals("yes", StringComparison.InvariantCultureIgnoreCase)
+				? Answer.Yes
+				: Answer.No;
 		}
     }
 }

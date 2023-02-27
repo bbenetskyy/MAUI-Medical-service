@@ -1,16 +1,15 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace MedicalService.Converters
 {
-    public class SelectedToBackgroundColorConverter : IValueConverter
-	{
+    public class SelectedToTextColorConverter : IValueConverter
+    {
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return bool.TryParse(value?.ToString(), out var selected) && selected
-                ? Color.FromArgb("#6073E7")
-                : Colors.Transparent;
+                ? Color.FromArgb("#F4FCFF")
+                : Color.FromArgb("#777777");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

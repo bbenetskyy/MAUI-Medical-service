@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xs="clr-namespace:MedicalService.Models" xmlns:converters="clr-namespace:MedicalService.Converters"
+             xmlns:xs="clr-namespace:MedicalService.Models"
+             xmlns:converters="clr-namespace:MedicalService.Converters"
              NavigationPage.HasNavigationBar="False"
              x:Class="MedicalService.MainPage">
     <ContentPage.Resources>
+        <converters:SelectedAnswerToBackgroundColorConverter
+            x:Key="SelectedAnswerToBackgroundColor"/>
+        <converters:SelectedAnswerToTextColorConverter
+            x:Key="SelectedAnswerToTextColor"/>
         <converters:SelectedToBackgroundColorConverter
             x:Key="SelectedToBackgroundColor"/>
         <converters:SelectedToTextColorConverter
@@ -28,18 +33,18 @@
                     </Image.Clip>
                 </Image>
 
-                  <Label Text="Welcome back!"
+                <Label Text="Welcome back!"
                          Grid.Column="1"
                          TextColor="#4A4A4A"
                          FontFamily="OpenSansSemibold"
                          FontSize="Header"
                          HorizontalOptions="Center"
-                         VerticalOptions="Center"/> 
-                    <Grid Grid.Column="2">
-                        <Image Source="bell.png"
+                         VerticalOptions="Center"/>
+                <Grid Grid.Column="2">
+                    <Image Source="bell.png"
                                HeightRequest="30"
                                WidthRequest="30"/>
-                        <Ellipse HorizontalOptions="End"
+                    <Ellipse HorizontalOptions="End"
                                  VerticalOptions="Start"
                                  Margin="0,15,2,0"
                                  Fill="#3E0789"
@@ -61,10 +66,10 @@
             <Grid ColumnDefinitions="*,*"
                   ColumnSpacing="12">
 
-                    <Grid ColumnDefinitions="*, 4*"
+                <Grid ColumnDefinitions="*, 4*"
                           Padding="20,12"
                           ColumnSpacing="8">
-                <Frame CornerRadius="10"
+                    <Frame CornerRadius="10"
                        Grid.ColumnSpan="2"
                        Margin="-20,-12"
                        HasShadow="False"
@@ -82,11 +87,11 @@
                                TextColor="#DFE6FD"/>
                 </Grid>
 
-                  <Grid ColumnDefinitions="*, 4*"
+                <Grid ColumnDefinitions="*, 4*"
                           Padding="20,12"
                         Grid.Column="1"
                           ColumnSpacing="8">
-                <Frame CornerRadius="10"
+                    <Frame CornerRadius="10"
                        Grid.ColumnSpan="2"
                        Margin="-20,-12"
                        HasShadow="False"
@@ -107,12 +112,12 @@
 
             </Grid>
 
-              <Label FontSize="Title"
+            <Label FontSize="Title"
                    Margin="0,32,0,22"
                          FontFamily="OpenSansSemibold"
                    Text="Questionaire"
                    TextColor="#646464"/>
-              <Label FontSize="Subtitle"
+            <Label FontSize="Subtitle"
                          FontFamily="OpenSansSemibold"
                    Text="Approximate age"
                    TextColor="#626262"/>
@@ -121,36 +126,35 @@
             <ScrollView Orientation="Horizontal"
                         Margin="0,18"
                         HorizontalScrollBarVisibility="Never">
-                <StackLayout Orientation="Horizontal"
-                             Spacing="8">
+                <HorizontalStackLayout Spacing="8">
                     <BindableLayout.ItemsSource>
-                     <x:Array Type="{x:Type xs:SelectableModel}">
-                         <xs:SelectableModel Description="0-15"/> 
-                         <xs:SelectableModel Description="15-25"/> 
-                         <xs:SelectableModel Description="25-35"/> 
-                         <xs:SelectableModel Description="35-45"/> 
-                         <xs:SelectableModel Description="45-55"/> 
-                         <xs:SelectableModel Description="55-65"/> 
-                         <xs:SelectableModel Description="65-75"/> 
-                         <xs:SelectableModel Description="75-85"/> 
-                         <xs:SelectableModel Description="85-95"/> 
-                     </x:Array>
+                        <x:Array Type="{x:Type xs:SelectableModel}">
+                            <xs:SelectableModel Description="0-15"/>
+                            <xs:SelectableModel Description="15-25"/>
+                            <xs:SelectableModel Description="25-35"/>
+                            <xs:SelectableModel Description="35-45"/>
+                            <xs:SelectableModel Description="45-55"/>
+                            <xs:SelectableModel Description="55-65"/>
+                            <xs:SelectableModel Description="65-75"/>
+                            <xs:SelectableModel Description="75-85"/>
+                            <xs:SelectableModel Description="85-95"/>
+                        </x:Array>
                     </BindableLayout.ItemsSource>
 
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
-                        <Frame BorderColor="#6073E7"
-                               Padding="18,10"
+                            <Frame BorderColor="#BFC6F2"
+                                   Padding="18,10"
                                HasShadow="False"
                                HorizontalOptions="Start"
                                BackgroundColor="{Binding IsSelected,
                                         Converter={StaticResource SelectedToBackgroundColor}}">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
                                                       CommandParameter="{Binding .}"
                                                       />
-                            </Frame.GestureRecognizers>
-                            <Label Text="{Binding Description}"
+                                </Frame.GestureRecognizers>
+                                <Label Text="{Binding Description}"
                                    HorizontalOptions="Fill"
                                    VerticalOptions="Fill"
                            FontSize="Default"
@@ -159,18 +163,18 @@
                                    VerticalTextAlignment="Center"
                                    TextColor="{Binding IsSelected,
                                         Converter={StaticResource SelectedToTextColor}}"/>
-                        </Frame>
+                            </Frame>
 
-                    </DataTemplate>
+                        </DataTemplate>
 
                     </BindableLayout.ItemTemplate>
 
-                </StackLayout>
+                </HorizontalStackLayout>
 
             </ScrollView>
 
-            
-              <Label FontSize="Subtitle"
+
+            <Label FontSize="Subtitle"
                      Margin="0,12,0,0"
                          FontFamily="OpenSansSemibold"
                    Text="Ongoing diseases"
@@ -180,33 +184,32 @@
             <ScrollView Orientation="Horizontal"
                         Margin="0,18"
                         HorizontalScrollBarVisibility="Never">
-                <StackLayout Orientation="Horizontal"
-                             Spacing="8">
+                <HorizontalStackLayout Spacing="8">
                     <BindableLayout.ItemsSource>
-                     <x:Array Type="{x:Type xs:SelectableModel}">
-                         <xs:SelectableModel Description="None"/> 
-                         <xs:SelectableModel Description="Astma"/> 
-                         <xs:SelectableModel Description="Diabets"/> 
-                         <xs:SelectableModel Description="Hydatidosis"/> 
-                         <xs:SelectableModel Description="Plague"/> 
-                         <xs:SelectableModel Description="Varicella"/> 
-                     </x:Array>
+                        <x:Array Type="{x:Type xs:SelectableModel}">
+                            <xs:SelectableModel Description="None"/>
+                            <xs:SelectableModel Description="Astma"/>
+                            <xs:SelectableModel Description="Diabets"/>
+                            <xs:SelectableModel Description="Hydatidosis"/>
+                            <xs:SelectableModel Description="Plague"/>
+                            <xs:SelectableModel Description="Varicella"/>
+                        </x:Array>
                     </BindableLayout.ItemsSource>
 
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
-                        <Frame BorderColor="#6073E7"
-                               Padding="18,10"
+                            <Frame BorderColor="#BFC6F2"
+                                   Padding="18,10"
                                HasShadow="False"
                                HorizontalOptions="Start"
                                BackgroundColor="{Binding IsSelected,
                                         Converter={StaticResource SelectedToBackgroundColor}}">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
                                                       CommandParameter="{Binding .}"
                                                       />
-                            </Frame.GestureRecognizers>
-                            <Label Text="{Binding Description}"
+                                </Frame.GestureRecognizers>
+                                <Label Text="{Binding Description}"
                                    HorizontalOptions="Fill"
                                    VerticalOptions="Fill"
                            FontSize="Default"
@@ -215,17 +218,112 @@
                                    VerticalTextAlignment="Center"
                                    TextColor="{Binding IsSelected,
                                         Converter={StaticResource SelectedToTextColor}}"/>
-                        </Frame>
+                            </Frame>
 
-                    </DataTemplate>
+                        </DataTemplate>
 
                     </BindableLayout.ItemTemplate>
-
-                </StackLayout>
+                </HorizontalStackLayout>
 
             </ScrollView>
 
+            <!--Questions Section-->
+
+            <ScrollView Orientation="Horizontal"
+                        Margin="0,8"
+                        HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout Spacing="8">
+                    <BindableLayout.ItemsSource>
+                        <x:Array Type="{x:Type xs:QuestionableModel}">
+                            <xs:QuestionableModel Question="Bleeding"/>
+                            <xs:QuestionableModel Question="Poisoning"/>
+                            <xs:QuestionableModel Question="Dizziness"/>
+                        </x:Array>
+                    </BindableLayout.ItemsSource>
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="{x:Type xs:QuestionableModel}">
+                            <Frame BackgroundColor="#F2F2F2"
+                                   HasShadow="False"
+                                   CornerRadius="10"
+                                   Padding="10,16,10,12">
+                                <Grid ColumnDefinitions="*,*"
+                                      RowDefinitions="auto,*"
+                                      RowSpacing="22"
+                                      ColumnSpacing="12">
+                                    <Label Grid.ColumnSpan="2"
+                                           Text="{Binding Question}"
+                                           HorizontalOptions="Center"
+                                           FontFamily="OpenSansSemibold"
+                                           TextColor="#6073E7"
+                                           FontSize="Body"/>
+
+
+                                    <!--Left Button-->
+                                    <Frame BorderColor="#BFC6F2"
+                                           Grid.Row="1"
+                                           Padding="18,10"
+                                           MinimumWidthRequest="70"
+                                           HasShadow="False"
+                                           HorizontalOptions="Start"
+                                           BackgroundColor="{Binding Answer,
+                                                Converter={StaticResource SelectedAnswerToBackgroundColor},
+                                                ConverterParameter={x:Static xs:Answer.Yes}}">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                      CommandParameter="{Binding .}"
+                                                      />
+                                        </Frame.GestureRecognizers>
+                                        <Label Text="Yes"
+                                               HorizontalOptions="Fill"
+                                               VerticalOptions="Fill"
+                                               FontSize="Small"
+                                               FontFamily="OpenSansRegular"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center"
+                                               TextColor="{Binding Answer,
+                                                    Converter={StaticResource SelectedAnswerToTextColor},
+                                                    ConverterParameter={x:Static xs:Answer.Yes}}"/>
+                                    </Frame>
+
+                                    
+                                    <!--Right Button-->
+                                    <Frame BorderColor="#BFC6F2"
+                                           Grid.Row="1"
+                                           Grid.Column="1"
+                                           MinimumWidthRequest="70"
+                                           Padding="18,10"
+                                           HasShadow="False"
+                                           HorizontalOptions="Start"
+                                           BackgroundColor="{Binding Answer,
+                                                Converter={StaticResource SelectedAnswerToBackgroundColor},
+                                                ConverterParameter={x:Static xs:Answer.No}}">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                      CommandParameter="{Binding .}"
+                                                      />
+                                        </Frame.GestureRecognizers>
+                                        <Label Text="No"
+                                               HorizontalOptions="Fill"
+                                               VerticalOptions="Fill"
+                                               FontSize="Small"
+                                               FontFamily="OpenSansRegular"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center"
+                                               TextColor="{Binding Answer,
+                                                    Converter={StaticResource SelectedAnswerToTextColor},
+                                                    ConverterParameter={x:Static xs:Answer.No}}"/>
+                                    </Frame>
+
+
+                                </Grid>
+
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+
+                </HorizontalStackLayout>
+            </ScrollView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
-
