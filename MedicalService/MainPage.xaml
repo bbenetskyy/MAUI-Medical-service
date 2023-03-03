@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xs="clr-namespace:MedicalService.Models"
              xmlns:converters="clr-namespace:MedicalService.Converters"
+             xmlns:iOsSpecific="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              NavigationPage.HasNavigationBar="False"
+             iOsSpecific:Page.UseSafeArea="False"
              x:Class="MedicalService.MainPage">
     <ContentPage.Resources>
         <converters:SelectedAnswerToBackgroundColorConverter
