@@ -286,7 +286,7 @@
                                                     ConverterParameter={x:Static xs:Answer.Yes}}"/>
                                     </Frame>
 
-                                    
+
                                     <!--Right Button-->
                                     <Frame BorderColor="#BFC6F2"
                                            Grid.Row="1"
@@ -324,6 +324,79 @@
 
                 </HorizontalStackLayout>
             </ScrollView>
+
+
+            <Label FontSize="Subtitle"
+                     Margin="0,22"
+                         FontFamily="OpenSansSemibold"
+                   Text="Symptoms"
+                   TextColor="#626262"/>
+
+            <!--List of Symptoms-->
+            <CollectionView>
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     HorizontalItemSpacing="18"
+                                     Span="3" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type xs:SelectableModel}">
+                        <xs:SelectableModel Description="Anxiety"/>
+                        <xs:SelectableModel Description="Cough"/>
+                        <xs:SelectableModel Description="Vomiting"/>
+                        <xs:SelectableModel Description="Hernia"/>
+                        <xs:SelectableModel Description="Flu"/>
+                        <xs:SelectableModel Description="Diarrhea"/>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
+
+                        <Grid ColumnDefinitions="*, auto"
+                              Margin="0,0,18,0"
+                              ColumnSpacing="8">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                          CommandParameter="{Binding .}"
+                                          />
+                            </Grid.GestureRecognizers>
+                                     
+
+                            <Label FontSize="Header"
+                                   FontFamily="OpenSansRegular"
+                                   Text="{Binding Description}"
+                                   TextColor="#626262"/>
+
+                            
+                            <Ellipse Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Stroke="#3E0789"
+                                     HeightRequest="12"
+                                     WidthRequest="12"
+                                     />
+
+                            
+                            <Ellipse Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Fill="#3E0789"
+                                     HeightRequest="8"
+                                     IsVisible="{Binding IsSelected}"
+                                     WidthRequest="8"
+                                     />
+
+                        </Grid>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
