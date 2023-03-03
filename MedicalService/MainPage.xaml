@@ -333,26 +333,20 @@
                    TextColor="#626262"/>
 
             <!--List of Symptoms-->
-            <CollectionView>
 
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical"
-                                     HorizontalItemSpacing="18"
-                                     Span="3" />
-                </CollectionView.ItemsLayout>
+            <Grid ColumnDefinitions="*,*,*">
 
-                <CollectionView.ItemsSource>
+                 <VerticalStackLayout Spacing="18">
+
+                <BindableLayout.ItemsSource>
                     <x:Array Type="{x:Type xs:SelectableModel}">
+                        <xs:SelectableModel Description="Headache"/>
+                        <xs:SelectableModel Description="Weakness"/>
                         <xs:SelectableModel Description="Anxiety"/>
-                        <xs:SelectableModel Description="Cough"/>
-                        <xs:SelectableModel Description="Vomiting"/>
-                        <xs:SelectableModel Description="Hernia"/>
-                        <xs:SelectableModel Description="Flu"/>
-                        <xs:SelectableModel Description="Diarrhea"/>
                     </x:Array>
-                </CollectionView.ItemsSource>
+                </BindableLayout.ItemsSource>
 
-                <CollectionView.ItemTemplate>
+                <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
 
                         <Grid ColumnDefinitions="*, auto"
@@ -366,6 +360,7 @@
                                      
 
                             <Label FontSize="Header"
+                                   HorizontalTextAlignment="End"
                                    FontFamily="OpenSansRegular"
                                    Text="{Binding Description}"
                                    TextColor="#626262"/>
@@ -393,9 +388,135 @@
 
                     </DataTemplate>
 
-                </CollectionView.ItemTemplate>
+                </BindableLayout.ItemTemplate>
 
-            </CollectionView>
+            </VerticalStackLayout>
+
+                 <VerticalStackLayout Spacing="18"
+                                      Grid.Column="1">
+
+                <BindableLayout.ItemsSource>
+                    <x:Array Type="{x:Type xs:SelectableModel}">
+                        <xs:SelectableModel Description="Anxiety"/>
+                        <xs:SelectableModel Description="Flu"/>
+                        <xs:SelectableModel Description="Hernia"/>
+                    </x:Array>
+                </BindableLayout.ItemsSource>
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
+
+                        <Grid ColumnDefinitions="*, auto"
+                              Margin="0,0,18,0"
+                              ColumnSpacing="8">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                          CommandParameter="{Binding .}"
+                                          />
+                            </Grid.GestureRecognizers>
+                                     
+
+                            <Label FontSize="Header"
+                                   HorizontalTextAlignment="End"
+                                   FontFamily="OpenSansRegular"
+                                   Text="{Binding Description}"
+                                   TextColor="#626262"/>
+
+                            
+                            <Ellipse Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Stroke="#3E0789"
+                                     HeightRequest="12"
+                                     WidthRequest="12"
+                                     />
+
+                            
+                            <Ellipse Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Fill="#3E0789"
+                                     HeightRequest="8"
+                                     IsVisible="{Binding IsSelected}"
+                                     WidthRequest="8"
+                                     />
+
+                        </Grid>
+
+                    </DataTemplate>
+
+                </BindableLayout.ItemTemplate>
+
+            </VerticalStackLayout>
+
+                 <VerticalStackLayout Spacing="18"
+                                      Grid.Column="2">
+
+                <BindableLayout.ItemsSource>
+                    <x:Array Type="{x:Type xs:SelectableModel}">
+                        <xs:SelectableModel Description="Vomiting"/>
+                        <xs:SelectableModel Description="Anxiety"/>
+                        <xs:SelectableModel Description="Diarrhea"/>
+                    </x:Array>
+                </BindableLayout.ItemsSource>
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
+
+                        <Grid ColumnDefinitions="*, auto"
+                              Margin="0,0,18,0"
+                              ColumnSpacing="8">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                          CommandParameter="{Binding .}"
+                                          />
+                            </Grid.GestureRecognizers>
+                                     
+
+                            <Label FontSize="Header"
+                                   HorizontalTextAlignment="End"
+                                   FontFamily="OpenSansRegular"
+                                   Text="{Binding Description}"
+                                   TextColor="#626262"/>
+
+                            
+                            <Ellipse Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Stroke="#3E0789"
+                                     HeightRequest="12"
+                                     WidthRequest="12"
+                                     />
+
+                            
+                            <Ellipse Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Fill="#3E0789"
+                                     HeightRequest="8"
+                                     IsVisible="{Binding IsSelected}"
+                                     WidthRequest="8"
+                                     />
+
+                        </Grid>
+
+                    </DataTemplate>
+
+                </BindableLayout.ItemTemplate>
+
+            </VerticalStackLayout>
+
+            </Grid>
+
+
+           
+            <Button Text="Call on"
+                    CornerRadius="10"
+                    Margin="0,18"
+                    Padding="-10,16"
+                    FontAttributes="Bold"
+                    TextColor="#FFFFFF"
+                    BackgroundColor="#303A74"/>
 
         </VerticalStackLayout>
     </ScrollView>
