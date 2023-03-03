@@ -342,13 +342,13 @@
                     <x:Array Type="{x:Type xs:SelectableModel}">
                         <xs:SelectableModel Description="Headache"/>
                         <xs:SelectableModel Description="Weakness"/>
-                        <xs:SelectableModel Description="Anxiety"/>
                     </x:Array>
                 </BindableLayout.ItemsSource>
 
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
 
+                        
                         <Grid ColumnDefinitions="*, auto"
                               Margin="0,0,18,0"
                               ColumnSpacing="8">
@@ -370,8 +370,9 @@
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
                                      Stroke="#3E0789"
-                                     HeightRequest="12"
-                                     WidthRequest="12"
+                                     StrokeThickness="2"
+                                     HeightRequest="14"
+                                     WidthRequest="14"
                                      />
 
                             
@@ -379,9 +380,9 @@
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
                                      Fill="#3E0789"
-                                     HeightRequest="8"
+                                     HeightRequest="9"
                                      IsVisible="{Binding IsSelected}"
-                                     WidthRequest="8"
+                                     WidthRequest="9"
                                      />
 
                         </Grid>
@@ -399,13 +400,13 @@
                     <x:Array Type="{x:Type xs:SelectableModel}">
                         <xs:SelectableModel Description="Anxiety"/>
                         <xs:SelectableModel Description="Flu"/>
-                        <xs:SelectableModel Description="Hernia"/>
                     </x:Array>
                 </BindableLayout.ItemsSource>
 
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type xs:SelectableModel}">
 
+                       
                         <Grid ColumnDefinitions="*, auto"
                               Margin="0,0,18,0"
                               ColumnSpacing="8">
@@ -427,8 +428,9 @@
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
                                      Stroke="#3E0789"
-                                     HeightRequest="12"
-                                     WidthRequest="12"
+                                     StrokeThickness="2"
+                                     HeightRequest="14"
+                                     WidthRequest="14"
                                      />
 
                             
@@ -436,9 +438,9 @@
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
                                      Fill="#3E0789"
-                                     HeightRequest="8"
+                                     HeightRequest="9"
                                      IsVisible="{Binding IsSelected}"
-                                     WidthRequest="8"
+                                     WidthRequest="9"
                                      />
 
                         </Grid>
@@ -456,7 +458,6 @@
                     <x:Array Type="{x:Type xs:SelectableModel}">
                         <xs:SelectableModel Description="Vomiting"/>
                         <xs:SelectableModel Description="Anxiety"/>
-                        <xs:SelectableModel Description="Diarrhea"/>
                     </x:Array>
                 </BindableLayout.ItemsSource>
 
@@ -484,8 +485,9 @@
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
                                      Stroke="#3E0789"
-                                     HeightRequest="12"
-                                     WidthRequest="12"
+                                     StrokeThickness="2"
+                                     HeightRequest="14"
+                                     WidthRequest="14"
                                      />
 
                             
@@ -493,9 +495,9 @@
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
                                      Fill="#3E0789"
-                                     HeightRequest="8"
+                                     HeightRequest="9"
                                      IsVisible="{Binding IsSelected}"
-                                     WidthRequest="8"
+                                     WidthRequest="9"
                                      />
 
                         </Grid>
