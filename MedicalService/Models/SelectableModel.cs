@@ -5,8 +5,8 @@ namespace MedicalService.Models
 {
 	public partial class SelectableModel : ObservableObject
     {
-        [ObservableProperty] public string _description;
-        [ObservableProperty] public bool _isSelected;
+        [ObservableProperty] private string _description;
+        [ObservableProperty] private bool _isSelected;
 	}
 }
 

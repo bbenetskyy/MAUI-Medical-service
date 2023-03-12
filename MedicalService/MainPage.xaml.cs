@@ -9,7 +9,7 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-    void TapGestureRecognizer_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
+    private void TapGestureRecognizer_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
     {
 		if (e.Parameter is SelectableModel selectable)
 		{

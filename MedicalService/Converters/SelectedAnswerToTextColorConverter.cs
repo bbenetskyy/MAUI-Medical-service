@@ -5,8 +5,6 @@ namespace MedicalService.Converters
 {
     public class SelectedAnswerToTextColorConverter : IValueConverter
     {
-        public Answer RequiredAnswer { get; set; }
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return Answer.TryParse(typeof(Answer), value?.ToString(), out var answer)
